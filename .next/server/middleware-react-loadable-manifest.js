@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST='{"components/PollCard.tsx -> @/lib/db":{"id":3562,"files":[]},"lib/samplePolls.ts -> ./firebase":{"id":6410,"files":[]},"lib/samplePolls.ts -> firebase/firestore":{"id":5978,"files":[]}}';
+self.__REACT_LOADABLE_MANIFEST="{}"
