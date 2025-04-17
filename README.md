@@ -6,6 +6,11 @@ Social Poll is a modern web application that allows users to create and answer p
 ## Project Status
 All core features have been completed and tested. The application is ready for deployment.
 
+## Future Considerations
+- Enhanced analytics for poll engagement
+- User authentication for managing polls
+- Additional social sharing features
+
 ## Requirements
 
 ### Core Features
