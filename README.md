@@ -9,8 +9,7 @@ The application is completed and thoroughly tested with all required features im
 - Mobile responsiveness has been implemented, ensuring a seamless experience on all devices
 - Enhanced UI with a modern dark theme and teal/mint accents provides a delightful user experience
 - localStorage is used for data persistence instead of Firebase due to compatibility issues with Next.js 14
-
-The only remaining task is production deployment, which is currently in progress.
+- The application has been deployed to production at https://initial-empty-app-icy-water-4308.fly.dev/
 
 ## Future Considerations
 - Enhanced analytics for poll engagement
