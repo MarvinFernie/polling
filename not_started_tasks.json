@@ -1,30 +1,13 @@
 [
   {
-    "title": "Results Visibility After Participation",
-    "description": "Implement the feature to show poll results only after participation",
-    "dependencies": ["Answer Poll Feature"],
-    "notes": "Show results with percentages and total votes after user answers",
-    "suggested_tests": ["Test results are hidden before answering", "Test results display correctly after answering"]
-  },
-  {
-    "title": "Upvoting System",
-    "description": "Implement the ability to upvote questions with limit of one upvote per question per user",
-    "dependencies": ["Poll Feed Implementation", "Database Schema Design"],
-    "notes": "Add upvote functionality and track user upvotes",
-    "suggested_tests": ["Test upvoting works", "Test one upvote per user per question limit"]
-  },
-  {
-    "title": "Feed Sorting by Popularity",
-    "description": "Sort the feed to show most upvoted questions at the top",
-    "dependencies": ["Upvoting System", "Poll Feed Implementation"],
-    "notes": "Implement sorting algorithm based on upvotes",
-    "suggested_tests": ["Test sorting order changes when upvotes change"]
-  },
-  {
     "title": "Deployment",
     "description": "Deploy the application to a hosting platform",
-    "dependencies": ["UI/UX Enhancement", "Feed Sorting by Popularity"],
-    "notes": "Deploy to Vercel or another suitable platform",
-    "suggested_tests": ["Test deployed application functionality", "Verify all features work in production"]
+    "dependencies": ["Poll Feed Implementation", "Feed Sorting by Popularity"],
+    "notes": "Deploy to Vercel or another suitable platform. Must fix the Poll Feed implementation issue before deployment.",
+    "suggested_tests": [
+      "Test deployed application functionality",
+      "Verify all features work in production",
+      "Test application performance under real-world conditions"
+    ]
   }
 ]

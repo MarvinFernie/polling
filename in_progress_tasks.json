@@ -1,23 +1,24 @@
 [
   {
-    "title": "Core Poll Creation Feature",
-    "description": "Implement the ability for users to create polls with questions and multiple answers",
-    "relevant_paths": ["/src/app/polls/create/page.tsx", "/src/components/CreatePollForm.tsx", "/src/lib/db.ts"],
-    "notes": "The poll creation form is implemented but needs further testing with the database connection",
-    "logs": ["Created form UI for submitting new polls with multiple answer options", "Implemented client-side validation", "Need to complete testing of the integration with Firebase"]
-  },
-  {
     "title": "Poll Feed Implementation",
     "description": "Create the feed interface showing all polls with their questions",
     "relevant_paths": ["/src/app/polls/page.tsx", "/src/components/PollFeed.tsx", "/src/components/PollCard.tsx"],
     "notes": "The poll feed UI is implemented but there are issues with fetching polls from Firebase",
-    "logs": ["Implemented feed UI and sorting functionality", "Created poll cards for displaying questions", "Currently troubleshooting Firebase data fetching issues"]
+    "logs": [
+      "Implemented feed UI and sorting functionality",
+      "Created poll cards for displaying questions",
+      "Currently troubleshooting Firebase data fetching issues",
+      "Individual polls can be created and viewed, but they're not displaying in the feed"
+    ]
   },
   {
-    "title": "Answer Poll Feature",
-    "description": "Allow users to select answers to polls and record their responses",
-    "relevant_paths": ["/src/components/PollCard.tsx", "/src/lib/clientActions.ts"],
-    "notes": "UI for answering polls is implemented but needs to be connected with localStorage for tracking user votes",
-    "logs": ["Created UI for selecting answers", "Implemented basic structure for recording responses", "Need to finalize the connection with localStorage"]
+    "title": "Feed Sorting by Popularity",
+    "description": "Sort the feed to show most upvoted questions at the top",
+    "relevant_paths": ["/src/app/polls/page.tsx", "/src/components/PollFeed.tsx"],
+    "notes": "Implementation depends on fixing the Poll Feed Implementation issue first",
+    "logs": [
+      "Upvote tracking is implemented and working",
+      "Sorting logic is implemented but can't be tested until polls display in the feed"
+    ]
   }
 ]

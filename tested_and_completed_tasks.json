@@ -64,5 +64,81 @@
     ],
     "notes": "Created functionality to seed the database with the three sample questions specified in the requirements.",
     "explanation_of_success": "The application successfully seeds the database with the three required sample questions when triggered through the UI. The seeding process includes detailed logging for transparency."
+  },
+  {
+    "title": "Core Poll Creation Feature",
+    "description": "Implement the ability for users to create polls with questions and multiple answers",
+    "relevant_paths": ["/src/app/polls/create/page.tsx", "/src/components/CreatePollForm.tsx", "/src/lib/db.ts"],
+    "tests": [
+      {
+        "title": "Poll Creation Form Test",
+        "description": "Tested creating polls with multiple answer options",
+        "path": "N/A - Manual test through UI interaction"
+      },
+      {
+        "title": "Poll Persistence Test",
+        "description": "Verified created polls could be accessed via their unique URLs",
+        "path": "N/A - Manual test through UI interaction"
+      }
+    ],
+    "notes": "Implemented a form interface for creating polls with dynamic answer fields and client-side validation.",
+    "explanation_of_success": "Users can now create polls with custom questions and multiple answer options. The polls are successfully stored in the database and can be accessed individually."
+  },
+  {
+    "title": "Answer Poll Feature",
+    "description": "Allow users to select answers to polls and record their responses",
+    "relevant_paths": ["/src/components/PollCard.tsx", "/src/lib/clientActions.ts"],
+    "tests": [
+      {
+        "title": "Poll Answer Selection Test",
+        "description": "Tested selecting and submitting poll answers",
+        "path": "N/A - Manual test through UI interaction"
+      },
+      {
+        "title": "Vote Tracking Test",
+        "description": "Verified votes are tracked properly in localStorage",
+        "path": "N/A - Manual test through UI interaction"
+      }
+    ],
+    "notes": "Implemented UI for selecting answers and submit mechanism to record responses.",
+    "explanation_of_success": "Users can now vote on polls by selecting an answer and submitting their response. Vote counts are updated correctly in the database."
+  },
+  {
+    "title": "Results Visibility After Participation",
+    "description": "Implement the feature to show poll results only after participation",
+    "relevant_paths": ["/src/components/PollCard.tsx", "/src/lib/clientActions.ts"],
+    "tests": [
+      {
+        "title": "Results Hidden Test",
+        "description": "Verified that results are hidden before answering",
+        "path": "N/A - Manual test through UI interaction"
+      },
+      {
+        "title": "Results Display Test",
+        "description": "Verified results are shown with percentages after voting",
+        "path": "N/A - Manual test through UI interaction"
+      }
+    ],
+    "notes": "Implemented conditional rendering to show poll results only after a user votes.",
+    "explanation_of_success": "Poll results are now hidden from users until they participate. After voting, users can see the distribution of votes across all options with percentages."
+  },
+  {
+    "title": "Upvoting System",
+    "description": "Implement the ability to upvote questions with limit of one upvote per question per user",
+    "relevant_paths": ["/src/components/PollCard.tsx", "/src/lib/clientActions.ts"],
+    "tests": [
+      {
+        "title": "Upvote Functionality Test",
+        "description": "Tested upvoting a poll",
+        "path": "N/A - Manual test through UI interaction"
+      },
+      {
+        "title": "Upvote Limit Test",
+        "description": "Verified users can only upvote a poll once",
+        "path": "N/A - Manual test through UI interaction"
+      }
+    ],
+    "notes": "Added upvote functionality with tracking in localStorage to limit users to one upvote per poll.",
+    "explanation_of_success": "Users can now upvote polls to indicate popularity. The system correctly enforces the one upvote per user per poll limit."
   }
 ]
