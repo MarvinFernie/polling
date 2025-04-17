@@ -4,7 +4,7 @@
 Social Poll is a modern web application that allows users to create and answer polls in a feed format. The platform enables anonymous feedback collection at scale, with results only visible after participation. Questions can be upvoted, with popular questions appearing at the top of the feed.
 
 ## Project Status
-All core features have been completed and tested. The application is ready for deployment.
+All core features have been completed and implemented. Testing indicates the application should work as expected, though there may be environment-specific setup requirements needed for successful deployment.
 
 ## Future Considerations
 - Enhanced analytics for poll engagement

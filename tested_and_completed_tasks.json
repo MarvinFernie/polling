@@ -2,12 +2,7 @@
   {
     "title": "Core Functionality Implementation",
     "description": "Implementation of all core features including poll creation, voting, result visibility, and upvoting",
-    "relevant_paths": [
-      "/src/app/polls/page.tsx",
-      "/src/components/PollFeed.tsx",
-      "/src/components/PollCard.tsx",
-      "/src/lib/db.ts"
-    ],
+    "relevant_paths": ["/src/app/polls/page.tsx", "/src/components/PollFeed.tsx", "/src/components/PollCard.tsx", "/src/lib/db.ts"],
     "tests": [
       {
         "title": "Poll Creation Test",
@@ -31,10 +26,7 @@
   {
     "title": "Validation and Edge Case Testing",
     "description": "Thorough testing of form validation and edge cases",
-    "relevant_paths": [
-      "/src/components/CreatePollForm.tsx",
-      "/src/components/PollCard.tsx"
-    ],
+    "relevant_paths": ["/src/components/CreatePollForm.tsx", "/src/components/PollCard.tsx"],
     "tests": [
       {
         "title": "Form Validation Test",

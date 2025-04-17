@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "title": "Deployment Environment Setup",
+    "description": "Ensuring the application can run properly in various deployment environments",
+    "relevant_paths": ["/package.json", "/.env.local", "/next.config.js"],
+    "notes": "Currently investigating development server startup issues that may be environment-specific",
+    "logs": ["Attempted to run with npm run dev but encountered 'next: not found' errors", "Tried alternative approaches like npx next dev"]
+  }
+]
