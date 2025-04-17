@@ -27,5 +27,32 @@
     ],
     "notes": "All required functionality has been successfully implemented. The application includes the three specified sample questions and properly tracks votes and upvotes.",
     "explanation_of_success": "The application now fully satisfies the requirements. Users can create polls, vote on them, and see results after participation. The feed displays polls with the most upvoted at the top. The design is modern and sleek with a dark theme and teal/mint accents."
+  },
+  {
+    "title": "Validation and Edge Case Testing",
+    "description": "Thorough testing of form validation and edge cases",
+    "relevant_paths": [
+      "/src/components/CreatePollForm.tsx",
+      "/src/components/PollCard.tsx"
+    ],
+    "tests": [
+      {
+        "title": "Form Validation Test",
+        "description": "Verified that form validation prevents empty questions and options",
+        "path": "N/A - Manual test through UI"
+      },
+      {
+        "title": "Multiple Voting Prevention Test",
+        "description": "Verified that users cannot vote multiple times on the same poll",
+        "path": "N/A - Manual test through UI"
+      },
+      {
+        "title": "Upvote Functionality Test",
+        "description": "Tested upvote system functionality and poll sorting",
+        "path": "N/A - Manual test through UI"
+      }
+    ],
+    "notes": "Identified one potential limitation: the upvote system appears to track by session rather than strictly enforcing one-upvote-per-user, which would require a full authentication system to implement properly.",
+    "explanation_of_success": "All form validation works correctly, preventing submission of empty forms. The voting system successfully prevents duplicate votes and correctly displays results after participation. The application handles all tested edge cases appropriately."
   }
 ]
