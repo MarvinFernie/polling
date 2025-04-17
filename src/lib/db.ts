@@ -66,7 +66,7 @@ export async function getPoll(id: string): Promise<Poll | null> {
 /**
  * Get polls for the feed, sorted by upvotes
  */
-export async function getPolls(limit: number = 20): Promise<Poll[]> {
+export async function getPolls(maxResults: number = 20): Promise<Poll[]> {
   try {
     console.log("Querying Firestore for polls...");
     
@@ -76,12 +76,11 @@ export async function getPolls(limit: number = 20): Promise<Poll[]> {
       return [];
     }
     
-    // Sort by creation time as fallback if no upvotes
+    // Sort by upvotes only to avoid composite index requirement
     const q = query(
       pollsCollection, 
       orderBy('upvotes', 'desc'), 
-      orderBy('createdAt', 'desc'), 
-      limit(limit)
+      limit(maxResults)
     );
     
     const querySnapshot = await getDocs(q);

@@ -1,6 +1,3 @@
 {
-  "/polls/page": "app/polls/page.js",
-  "/page": "app/page.js",
-  "/polls/create/page": "app/polls/create/page.js",
-  "/polls/[id]/page": "app/polls/[id]/page.js"
+  "/polls/page": "app/polls/page.js"
 }
