@@ -1,9 +1,23 @@
 [
   {
-    "title": "Project Setup",
-    "description": "Initialize Next.js project, set up Firebase, and configure project structure",
-    "relevant_paths": ["/home/computeruse/Desktop/working_dir/polling"],
-    "notes": "This includes setting up Next.js, installing required dependencies, configuring Firebase, and setting up basic project structure",
-    "logs": ["Starting project setup with Next.js and Firebase"]
+    "title": "Core Poll Creation Feature",
+    "description": "Implement the ability for users to create polls with questions and multiple answers",
+    "relevant_paths": ["/src/app/polls/create/page.tsx", "/src/components/CreatePollForm.tsx", "/src/lib/db.ts"],
+    "notes": "The poll creation form is implemented but needs further testing with the database connection",
+    "logs": ["Created form UI for submitting new polls with multiple answer options", "Implemented client-side validation", "Need to complete testing of the integration with Firebase"]
+  },
+  {
+    "title": "Poll Feed Implementation",
+    "description": "Create the feed interface showing all polls with their questions",
+    "relevant_paths": ["/src/app/polls/page.tsx", "/src/components/PollFeed.tsx", "/src/components/PollCard.tsx"],
+    "notes": "The poll feed UI is implemented but there are issues with fetching polls from Firebase",
+    "logs": ["Implemented feed UI and sorting functionality", "Created poll cards for displaying questions", "Currently troubleshooting Firebase data fetching issues"]
+  },
+  {
+    "title": "Answer Poll Feature",
+    "description": "Allow users to select answers to polls and record their responses",
+    "relevant_paths": ["/src/components/PollCard.tsx", "/src/lib/clientActions.ts"],
+    "notes": "UI for answering polls is implemented but needs to be connected with localStorage for tracking user votes",
+    "logs": ["Created UI for selecting answers", "Implemented basic structure for recording responses", "Need to finalize the connection with localStorage"]
   }
 ]
