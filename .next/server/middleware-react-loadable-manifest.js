@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"components/PollCard.tsx -> @/lib/db\":{\"id\":\"components/PollCard.tsx -> @/lib/db\",\"files\":[]},\"lib/samplePolls.ts -> ./firebase\":{\"id\":\"lib/samplePolls.ts -> ./firebase\",\"files\":[]},\"lib/samplePolls.ts -> firebase/firestore\":{\"id\":\"lib/samplePolls.ts -> firebase/firestore\",\"files\":[]}}"

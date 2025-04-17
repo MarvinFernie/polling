@@ -1,9 +1,13 @@
+'use client';
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createPoll } from '@/lib/db';
+import { useUser } from './UserProvider';
 
 export default function CreatePollForm() {
   const router = useRouter();
+  const { userId } = useUser();
   const [question, setQuestion] = useState('');
   const [options, setOptions] = useState(['', '']); // Start with two empty options
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,14 +49,18 @@ export default function CreatePollForm() {
     setIsSubmitting(true);
 
     try {
-      // Submit to database
+      // Direct database call instead of server action
       const pollId = await createPoll({
         question: question.trim(),
         options: filteredOptions,
       });
 
-      // Redirect to the poll
-      router.push(`/polls/${pollId}`);
+      if (pollId) {
+        // Redirect to the poll
+        router.push(`/polls/${pollId}`);
+      } else {
+        throw new Error('Failed to create poll');
+      }
     } catch (err) {
       console.error('Error creating poll:', err);
       setError('Failed to create poll. Please try again.');

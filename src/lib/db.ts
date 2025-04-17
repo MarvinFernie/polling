@@ -67,13 +67,41 @@ export async function getPoll(id: string): Promise<Poll | null> {
  * Get polls for the feed, sorted by upvotes
  */
 export async function getPolls(limit: number = 20): Promise<Poll[]> {
-  const q = query(pollsCollection, orderBy('upvotes', 'desc'), limit(limit));
-  const querySnapshot = await getDocs(q);
-
-  return querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  } as Poll));
+  try {
+    console.log("Querying Firestore for polls...");
+    
+    // Make sure db is initialized
+    if (!db) {
+      console.error("Firestore db is not initialized");
+      return [];
+    }
+    
+    // Sort by creation time as fallback if no upvotes
+    const q = query(
+      pollsCollection, 
+      orderBy('upvotes', 'desc'), 
+      orderBy('createdAt', 'desc'), 
+      limit(limit)
+    );
+    
+    const querySnapshot = await getDocs(q);
+    console.log(`Found ${querySnapshot.docs.length} polls`);
+    
+    // Map docs to Poll objects with proper type safety
+    return querySnapshot.docs.map((doc) => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        question: data.question || "",
+        options: data.options || [],
+        upvotes: data.upvotes || 0,
+        createdAt: data.createdAt || Date.now(),
+      } as Poll;
+    });
+  } catch (error) {
+    console.error("Error getting polls:", error);
+    return [];
+  }
 }
 
 /**

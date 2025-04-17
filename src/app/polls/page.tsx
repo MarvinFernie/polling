@@ -1,27 +1,23 @@
-import { cookies } from 'next/headers';
-import { v4 as uuidv4 } from 'uuid';
+import Link from 'next/link';
 import PollFeed from '@/components/PollFeed';
 
 export default function PollsPage() {
-  // Get or create user ID from cookies
-  const cookieStore = cookies();
-  const userId = cookieStore.get('userId')?.value || uuidv4();
-  
-  // Set the cookie if it doesn't exist
-  if (!cookieStore.get('userId')) {
-    cookies().set('userId', userId, { 
-      expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000) // 1 year
-    });
-  }
-  
   return (
-    <div className="space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-primary-700">Polls</h1>
-        <p className="text-gray-600">Browse and vote on polls. The most popular polls appear at the top.</p>
+    <div className="space-y-10 animate-fade-in">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-border">
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-2">All Polls</h1>
+          <p className="text-gray-300">Browse and vote on polls. The most popular polls appear at the top.</p>
+        </div>
+        <Link href="/polls/create" className="btn-primary flex items-center">
+          <svg className="mr-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+          </svg>
+          Create Poll
+        </Link>
       </div>
       
-      <PollFeed userId={userId} />
+      <PollFeed />
     </div>
   );
 }

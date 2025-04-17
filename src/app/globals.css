@@ -3,25 +3,207 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --foreground-rgb: 245, 247, 250;
+  --background-rgb: 16, 19, 24;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    --font-sans: 'Inter var', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Custom scrollbar for modern browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(45, 51, 59, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(88, 199, 173, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(88, 199, 173, 0.4);
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+  
+  input, select, textarea {
+    @apply transition-all duration-200;
+  }
 }
 
 @layer components {
+  /* Buttons */
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-accent hover:bg-accent-dark text-white font-medium py-2.5 px-5 rounded-xl shadow-subtle 
+      transition-all duration-300 ease-in-out transform hover:translate-y-[-1px] hover:shadow-md 
+      focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-opacity-50 
+      active:translate-y-0 active:shadow-subtle;
   }
   
+  .btn-secondary {
+    @apply bg-surface hover:bg-surface-light text-gray-200 font-medium py-2.5 px-5 rounded-xl 
+      border border-border-light shadow-subtle transition-all duration-300 ease-in-out 
+      hover:border-accent-light focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-opacity-50;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-accent hover:text-white border border-accent hover:bg-accent-dark 
+      font-medium py-2.5 px-5 rounded-xl transition-all duration-300 
+      focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-opacity-50;
+  }
+  
+  .btn-subtle {
+    @apply bg-transparent hover:bg-accent-subtle text-accent font-medium py-2 px-4 rounded-lg 
+      transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-40;
+  }
+  
+  /* Card components */
   .card {
-    @apply bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-200;
+    @apply bg-card rounded-xl shadow-card p-6 border border-border
+    hover:shadow-elevated transition-all duration-300 ease-in-out hover:border-border-light animate-fade-in;
   }
   
+  .card-interactive {
+    @apply card hover:bg-card-hover cursor-pointer;
+  }
+  
+  .card-flat {
+    @apply bg-card rounded-xl p-6 border border-border transition-all duration-300;
+  }
+  
+  /* Form elements */
   .input-field {
-    @apply border-gray-300 rounded-lg shadow-sm focus:border-primary-500 focus:ring-primary-500;
+    @apply bg-input border-border rounded-xl shadow-inner-subtle py-2.5 px-4
+    focus:border-accent focus:ring-accent-light focus:ring-opacity-20 transition-all duration-200
+    text-white placeholder-gray-500;
+  }
+  
+  .form-group {
+    @apply space-y-2 mb-4;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-300 mb-1;
+  }
+  
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply badge bg-accent-subtle text-accent-light;
+  }
+  
+  .badge-success {
+    @apply badge bg-success bg-opacity-20 text-success;
+  }
+  
+  /* Overrides for certain elements */
+  .text-gray-600 {
+    @apply text-gray-300;
+  }
+  
+  .text-gray-500 {
+    @apply text-gray-400;
+  }
+  
+  .hover\:text-primary-700:hover {
+    @apply hover:text-accent-light;
+  }
+  
+  .text-primary-600 {
+    @apply text-accent;
+  }
+  
+  .text-primary-700 {
+    @apply text-accent-light;
+  }
+  
+  /* Poll options in dark mode */
+  .border-gray-300 {
+    @apply border-border;
+  }
+  
+  .hover\:border-gray-400:hover {
+    @apply hover:border-accent;
+  }
+  
+  .border-primary-500 {
+    @apply border-accent;
+  }
+  
+  .bg-primary-50 {
+    @apply bg-accent-subtle;
+  }
+  
+  /* Progress bars */
+  .bg-gray-200 {
+    @apply bg-border;
+  }
+  
+  .bg-primary-600 {
+    @apply bg-accent;
+  }
+  
+  /* Upvote button */
+  .bg-primary-100 {
+    @apply bg-accent-subtle;
+  }
+  
+  .text-primary-800 {
+    @apply text-accent-light;
+  }
+  
+  /* Alerts */
+  .bg-red-50 {
+    @apply bg-red-900 bg-opacity-20;
+  }
+  
+  .text-red-700 {
+    @apply text-error;
+  }
+  
+  /* Animation classes */
+  .animate-on-scroll {
+    @apply opacity-0 transform translate-y-4 transition-all duration-700;
+  }
+  
+  .animate-on-scroll.is-visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .transition-scale {
+    @apply transition-transform duration-200 ease-in-out hover:scale-105;
   }
 }
