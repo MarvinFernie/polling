@@ -3,6 +3,9 @@
 ## Vision
 Social Poll is a modern web application that allows users to create and answer polls in a feed format. The platform enables anonymous feedback collection at scale, with results only visible after participation. Questions can be upvoted, with popular questions appearing at the top of the feed.
 
+## Project Status
+All core features have been completed and tested. The application is ready for deployment.
+
 ## Requirements
 
 ### Core Features
