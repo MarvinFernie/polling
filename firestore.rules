@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow anyone to read polls
+    match /polls/{pollId} {
+      allow read: true;
+      // Only allow create with proper structure
+      allow create: if request.resource.data.keys().hasOnly(['question', 'options', 'upvotes', 'createdAt']) &&
+                     request.resource.data.question is string &&
+                     request.resource.data.options is list &&
+                     request.resource.data.upvotes == 0 &&
+                     request.resource.data.createdAt is number;
+      // Only allow updates to upvotes or options fields
+      allow update: if request.resource.data.diff(resource.data).affectedKeys()
+                     .hasOnly(['upvotes', 'options']);
+    }
+    
+    // User votes - each user can only vote once per poll
+    match /userVotes/{voteId} {
+      allow read: true;
+      allow create: if request.resource.data.keys().hasOnly(['userId', 'pollId', 'optionId', 'votedAt']) &&
+                     request.resource.data.userId is string &&
+                     request.resource.data.pollId is string &&
+                     request.resource.data.optionId is string &&
+                     request.resource.data.votedAt is number &&
+                     !exists(/databases/$(database)/documents/userVotes/$(request.resource.data.userId + '_' + request.resource.data.pollId));
+    }
+    
+    // User upvotes - each user can only upvote a poll once
+    match /userUpvotes/{upvoteId} {
+      allow read: true;
+      allow create: if request.resource.data.keys().hasOnly(['userId', 'pollId', 'upvotedAt']) &&
+                     request.resource.data.userId is string &&
+                     request.resource.data.pollId is string &&
+                     request.resource.data.upvotedAt is number &&
+                     !exists(/databases/$(database)/documents/userUpvotes/$(request.resource.data.userId + '_' + request.resource.data.pollId));
+    }
+  }
+}
