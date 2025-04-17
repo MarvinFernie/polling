@@ -5,12 +5,13 @@ import { useEffect, useState } from 'react';
 import { useParams, notFound } from 'next/navigation';
 import { getPoll } from '@/lib/db';
 import PollCard from '@/components/PollCard';
+import { Poll } from '@/lib/types';
 
 export default function PollPage() {
   const params = useParams();
   const pollId = params.id as string;
   
-  const [poll, setPoll] = useState(null);
+  const [poll, setPoll] = useState<Poll | null>(null);
   const [loading, setLoading] = useState(true);
   const [initialVoted, setInitialVoted] = useState(false);
   const [initialUpvoted, setInitialUpvoted] = useState(false);
@@ -97,11 +98,13 @@ export default function PollPage() {
       
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
         <div className="md:col-span-3 md:col-start-2">
-          <PollCard 
-            poll={poll}
-            initialVoted={initialVoted}
-            initialUpvoted={initialUpvoted}
-          />
+          {poll && (
+            <PollCard 
+              poll={poll}
+              initialVoted={initialVoted}
+              initialUpvoted={initialUpvoted}
+            />
+          )}
         </div>
       </div>
       

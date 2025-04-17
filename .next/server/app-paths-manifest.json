@@ -1,3 +1,7 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/polls/[id]/page": "app/polls/[id]/page.js",
+  "/polls/create/page": "app/polls/create/page.js",
   "/polls/page": "app/polls/page.js"
 }

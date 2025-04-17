@@ -29,7 +29,8 @@ export default function SeedDatabase() {
         setSeedStatus('idle');
       } catch (error) {
         console.error('Error checking polls:', error);
-        setLogs(prev => [...prev, `Error checking polls: ${error.message || 'Unknown error'}`]);
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        setLogs(prev => [...prev, `Error checking polls: ${errorMessage}`]);
         setSeedStatus('idle');
       }
     };
@@ -88,7 +89,8 @@ export default function SeedDatabase() {
       
     } catch (error) {
       console.error('Error seeding database:', error);
-      addLog(`Error seeding database: ${error.message || 'Unknown error'}`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      addLog(`Error seeding database: ${errorMessage}`);
       setSeedStatus('error');
     } finally {
       setIsSeeding(false);

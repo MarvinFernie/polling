@@ -15,18 +15,26 @@ import {
   DocumentReference,
   DocumentData,
   Timestamp,
+  CollectionReference,
+  Firestore,
 } from 'firebase/firestore';
 import { Poll, CreatePollData, PollOption, UserVote, UserUpvote } from './types';
 
+// Ensure Firestore is initialized
+if (!db) {
+  throw new Error('Firestore is not initialized');
+}
+
 // Collection references
-const pollsCollection = collection(db, 'polls');
-const userVotesCollection = collection(db, 'userVotes');
-const userUpvotesCollection = collection(db, 'userUpvotes');
+const pollsCollection = collection(db as Firestore, 'polls');
+const userVotesCollection = collection(db as Firestore, 'userVotes');
+const userUpvotesCollection = collection(db as Firestore, 'userUpvotes');
 
 /**
  * Create a new poll
  */
 export async function createPoll(data: CreatePollData): Promise<string> {
+  if (!db) throw new Error('Firestore is not initialized');
   // Convert options to PollOption objects
   const options: PollOption[] = data.options.map((text) => ({
     id: Math.random().toString(36).substring(2, 15),
@@ -49,7 +57,8 @@ export async function createPoll(data: CreatePollData): Promise<string> {
  * Get a poll by ID
  */
 export async function getPoll(id: string): Promise<Poll | null> {
-  const docRef = doc(db, 'polls', id);
+  if (!db) throw new Error('Firestore is not initialized');
+  const docRef = doc(db as Firestore, 'polls', id);
   const docSnap = await getDoc(docRef);
 
   if (!docSnap.exists()) {
@@ -67,6 +76,7 @@ export async function getPoll(id: string): Promise<Poll | null> {
  * Get polls for the feed, sorted by upvotes
  */
 export async function getPolls(maxResults: number = 20): Promise<Poll[]> {
+  if (!db) throw new Error('Firestore is not initialized');
   try {
     console.log("Querying Firestore for polls...");
     
@@ -111,6 +121,12 @@ export async function vote(
   pollId: string,
   optionId: string
 ): Promise<boolean> {
+  if (!db) throw new Error('Firestore is not initialized');
+  if (!db) {
+    console.error('Firebase DB not initialized');
+    return false;
+  }
+
   // Check if user has already voted on this poll
   const q = query(
     userVotesCollection,
@@ -125,7 +141,7 @@ export async function vote(
   }
 
   // Get the poll document
-  const pollRef = doc(db, 'polls', pollId);
+  const pollRef = doc(db as Firestore, 'polls', pollId);
   const pollSnap = await getDoc(pollRef);
 
   if (!pollSnap.exists()) {
@@ -167,6 +183,7 @@ export async function upvotePoll(
   userId: string,
   pollId: string
 ): Promise<boolean> {
+  if (!db) throw new Error('Firestore is not initialized');
   // Check if user has already upvoted this poll
   const q = query(
     userUpvotesCollection,
@@ -181,7 +198,7 @@ export async function upvotePoll(
   }
 
   // Get the poll document
-  const pollRef = doc(db, 'polls', pollId);
+  const pollRef = doc(db as Firestore, 'polls', pollId);
   const pollSnap = await getDoc(pollRef);
 
   if (!pollSnap.exists()) {
