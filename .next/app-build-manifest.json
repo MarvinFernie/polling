@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/polls/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/polls/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,10 +11,10 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/polls/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/polls/page.js"
+      "static/chunks/app/page.js"
     ],
     "/polls/create/page": [
       "static/chunks/webpack.js",
