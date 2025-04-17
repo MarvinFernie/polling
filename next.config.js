@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['firebase', 'undici'],
+  output: 'standalone',
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
