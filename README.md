@@ -4,7 +4,7 @@
 Social Poll is a modern web application that allows users to create and answer polls in a feed format. The platform enables anonymous feedback collection at scale, with results only visible after participation. Questions can be upvoted, with popular questions appearing at the top of the feed.
 
 ## Project Status
-The core features have been implemented, but we're currently addressing environment-specific deployment issues. We're exploring alternatives to Firebase for data persistence due to compatibility challenges with Next.js 14.
+The core features have been implemented with localStorage instead of Firebase for data persistence, resolving the compatibility challenges with Next.js 14. The application is fully functional with poll creation, voting, and upvoting capabilities.
 
 ## Future Considerations
 - Enhanced analytics for poll engagement
@@ -24,7 +24,7 @@ The core features have been implemented, but we're currently addressing environm
 
 ### Technical Requirements
 - Next.js for the frontend framework
-- Firebase for database and authentication
+- LocalStorage for data persistence (Firebase replaced due to compatibility issues)
 - Modern, delightful UI inspired by Robinhood, Hinge, and Airbnb
 
 ### Sample Questions

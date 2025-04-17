@@ -1,1 +1,6 @@
-{}
+{
+  "components/PollCard.tsx -> @/lib/db": {
+    "id": "components/PollCard.tsx -> @/lib/db",
+    "files": []
+  }
+}
