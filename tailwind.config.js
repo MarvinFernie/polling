@@ -5,6 +5,7 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -23,12 +24,17 @@ module.exports = {
         },
         // Dark mode colors - more refined and elegant
         background: 'rgb(16, 19, 24)',
+        'background-light': 'rgb(245, 245, 245)', // Light mode background
         card: 'rgb(27, 32, 40)',
+        'card-light': 'rgb(255, 255, 255)', // Light mode card
         'card-hover': 'rgb(32, 37, 45)',
+        'card-hover-light': 'rgb(245, 245, 245)', // Light mode card hover
         input: 'rgb(36, 41, 49)',
+        'input-light': 'rgb(235, 235, 235)', // Light mode input
         border: 'rgb(45, 51, 59)',
-        'border-light': 'rgb(60, 66, 74)',
+        'border-light': 'rgb(225, 225, 225)', // Light mode border
         hover: 'rgb(40, 45, 55)',
+        'hover-light': 'rgb(235, 235, 235)', // Light mode hover
         // Softer accent colors (elegant teal-mint)
         accent: 'rgb(88, 199, 173)', // Softer teal
         'accent-dark': 'rgb(70, 179, 153)',
@@ -36,7 +42,7 @@ module.exports = {
         'accent-subtle': 'rgba(88, 199, 173, 0.15)',
         // Additional UI colors
         surface: 'rgb(22, 26, 34)',
-        'surface-light': 'rgb(30, 36, 44)',
+        'surface-light': 'rgb(255, 255, 255)', // Light mode surface
         success: 'rgb(106, 201, 119)',
         warning: 'rgb(253, 186, 116)',
         error: 'rgb(242, 135, 135)',
@@ -75,12 +81,21 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: '65ch',
-            color: 'rgb(229, 231, 235)',
+            color: 'rgb(31, 41, 55)', // Dark gray for light mode
+            '[class~="dark"] &': {
+              color: 'rgb(229, 231, 235)', // Light gray for dark mode
+            },
             h1: {
-              color: 'rgb(229, 231, 235)',
+              color: 'rgb(31, 41, 55)', // Dark gray for light mode
+              '[class~="dark"] &': {
+                color: 'rgb(229, 231, 235)', // Light gray for dark mode
+              },
             },
             p: {
-              color: 'rgb(229, 231, 235)',
+              color: 'rgb(31, 41, 55)', // Dark gray for light mode
+              '[class~="dark"] &': {
+                color: 'rgb(229, 231, 235)', // Light gray for dark mode
+              },
             },
           }
         }
