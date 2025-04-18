@@ -33,11 +33,11 @@ export async function seedSamplePolls() {
   try {
     console.log('Starting to seed sample polls...');
     
-    // Check if we can connect to Firestore first
-    if (!await checkFirestoreConnection()) {
-      console.error('❌ Cannot connect to Firestore. Check your Firebase configuration.');
-      return false;
-    }
+    // Skipping Firestore connection check to use localStorage fallback
+    // if (!await checkFirestoreConnection()) {
+    //   console.error('❌ Cannot connect to Firestore. Check your Firebase configuration.');
+    //   return false;
+    // }
     
     let successCount = 0;
     
@@ -58,8 +58,8 @@ export async function seedSamplePolls() {
           console.error(`❌ Failed to create poll: ${poll.question}`);
         }
         
-        // Small delay to ensure Firebase operations complete
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // Small delay to ensure operations complete (reduced for localStorage)
+        await new Promise(resolve => setTimeout(resolve, 300));
       } catch (pollError) {
         console.error(`❌ Error creating poll "${poll.question}":`, pollError);
       }
