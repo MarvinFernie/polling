@@ -12,10 +12,20 @@ The application is completed and thoroughly tested with all required features im
 
 The deployment pipeline to https://social-poll-app.fly.dev/ has been configured with Fly.io. The deployment configuration has been updated with proper environment variables and improved Docker setup to ensure the full application can be deployed successfully. The complete application works perfectly in the local development environment.
 
+Recent testing (April 2025) confirmed that all functionality works as expected:
+- Poll creation with multiple options functions correctly
+- Voting on polls shows results and prevents duplicate votes
+- Upvoting system works well and correctly sorts polls by popularity
+- Sample polls are correctly seeded into the database
+
 ## Future Considerations
 - Enhanced analytics for poll engagement
 - User authentication for managing polls
-- Additional social sharing features
+- Social sharing functionality for polls
+- User profile and username system
+- Dark/light theme toggle
+- Performance optimizations for large numbers of polls
+- Security enhancements and input validation
 - Potential migration back to Firebase if compatibility issues are resolved
 
 ## Requirements
