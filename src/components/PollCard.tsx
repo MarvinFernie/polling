@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Poll, PollOption } from '@/lib/types';
 import { formatVotes, calculatePercentage } from '@/lib/utils';
 import { useUser } from './UserProvider';
+import { ShareButtons } from '@/components/ui/ShareButtons';
 
 interface PollCardProps {
   poll: Poll;
@@ -210,13 +211,18 @@ export default function PollCard({
       )}
       
       {hasVoted && (
-        <div className="flex items-center mt-4 pt-4 border-t border-border text-sm text-gray-400">
-          <svg className="h-4 w-4 text-accent mr-2" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-          </svg>
-          <span>
-            You voted - {formatVotes(totalVotes)}
-          </span>
+        <div className="flex flex-col mt-4 pt-4 border-t border-border">
+          <div className="flex items-center text-sm text-gray-400">
+            <svg className="h-4 w-4 text-accent mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            <span>
+              You voted - {formatVotes(totalVotes)}
+            </span>
+          </div>
+          <div className="mt-4">
+            <ShareButtons pollId={pollData.id} question={pollData.question} />
+          </div>
         </div>
       )}
     </div>
