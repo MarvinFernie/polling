@@ -1,5 +1,29 @@
 [
   {
+    "title": "Dark/Light Theme Toggle",
+    "description": "Added a theme toggle to switch between dark and light modes",
+    "relevant_paths": ["/src/contexts/ThemeContext.tsx", "/src/components/ui/ThemeToggle.tsx", "/src/app/layout.tsx", "/tailwind.config.js"],
+    "tests": [
+      {
+        "title": "Theme Toggle Test",
+        "description": "Verified that users can toggle between dark and light themes",
+        "path": "N/A - Manual testing"
+      },
+      {
+        "title": "Theme Persistence Test",
+        "description": "Verified that theme preference is saved in localStorage and persists across page refreshes",
+        "path": "N/A - Manual testing"
+      },
+      {
+        "title": "UI Adaptation Test",
+        "description": "Verified that all UI elements properly adapt to theme changes",
+        "path": "N/A - Manual testing"
+      }
+    ],
+    "notes": "Implemented a dark/light theme toggle with a sun/moon icon that changes based on the current theme. Used React Context API to manage theme state globally and localStorage to persist user preference.",
+    "explanation_of_success": "Successfully implemented a theme toggle feature that allows users to switch between dark and light modes. The theme is applied consistently across the entire application and persists across sessions using localStorage. The toggle button is accessible in the header of the application and provides clear visual feedback with appropriate icons for each theme."
+  },
+  {
     "title": "Functionality Verification Testing",
     "description": "Conducted end-to-end testing of the Social Poll application's core features",
     "relevant_paths": ["/src/components/PollCard.tsx", "/src/components/PollFeed.tsx", "/src/components/CreatePollForm.tsx", "/src/lib/localStorage.ts"],
