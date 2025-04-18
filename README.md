@@ -8,6 +8,7 @@ The application is completed and thoroughly tested with all required features im
 - Core functionality including poll creation, voting, and upvoting is working perfectly
 - Mobile responsiveness has been implemented, ensuring a seamless experience on all devices
 - Enhanced UI with a modern dark theme and teal/mint accents provides a delightful user experience
+- Dark/light theme toggle with localStorage persistence for user preferences
 - localStorage is used for data persistence instead of Firebase due to compatibility issues with Next.js 14
 
 The deployment pipeline to https://social-poll-app.fly.dev/ has been configured with Fly.io. The deployment configuration has been updated with proper environment variables and improved Docker setup to ensure the full application can be deployed successfully. The complete application works perfectly in the local development environment.
@@ -21,9 +22,8 @@ Recent testing (April 2025) confirmed that all functionality works as expected:
 ## Future Considerations
 - Enhanced analytics for poll engagement
 - User authentication for managing polls
-- Social sharing functionality for polls
+- Social sharing functionality for polls (currently in progress)
 - User profile and username system
-- Dark/light theme toggle
 - Performance optimizations for large numbers of polls
 - Security enhancements and input validation
 - Potential migration back to Firebase if compatibility issues are resolved
