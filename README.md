@@ -10,7 +10,7 @@ The application is completed and thoroughly tested with all required features im
 - Enhanced UI with a modern dark theme and teal/mint accents provides a delightful user experience
 - localStorage is used for data persistence instead of Firebase due to compatibility issues with Next.js 14
 
-The deployment pipeline to https://initial-empty-app-icy-water-4308.fly.dev/ has been configured with Fly.io, but the full application deployment is in progress and currently shows a placeholder page. The complete application works perfectly in the local development environment.
+The deployment pipeline to https://social-poll-app.fly.dev/ has been configured with Fly.io. The deployment configuration has been updated with proper environment variables and improved Docker setup to ensure the full application can be deployed successfully. The complete application works perfectly in the local development environment.
 
 ## Future Considerations
 - Enhanced analytics for poll engagement
