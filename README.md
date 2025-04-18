@@ -19,6 +19,8 @@ Recent testing (April 2025) confirmed that all functionality works as expected:
 - Upvoting system works well and correctly sorts polls by popularity
 - Sample polls are correctly seeded into the database
 
+Comprehensive application testing is ongoing to identify potential improvements and ensure all features work flawlessly.
+
 ## Future Considerations
 - Enhanced analytics for poll engagement
 - User authentication for managing polls
